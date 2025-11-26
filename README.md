@@ -2,7 +2,7 @@
 
 ![alt text](image.png)
 
-<video controls src="Demo.mp4" title="Title"></video>
+[<video controls src="Demo.mp4" title="Title"></video>](https://drive.google.com/file/d/1d3XJuwB2Orjm2B_RL0UKr-7lUnQx2gPu/view?usp=sharing)
 
 ## Features
 - Kanban board with To Do, In Progress, and Done
