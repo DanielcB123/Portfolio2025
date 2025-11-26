@@ -9,6 +9,7 @@
 - composer install
 - npm install
 
+- touch database/database.sqlite
     - in .env change | # DB_DATABASE=laravel to -> DB_DATABASE=database/database.sqlite 
 - php artisan optimize
 
