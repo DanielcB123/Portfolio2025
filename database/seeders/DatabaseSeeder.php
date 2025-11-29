@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             TeamSeeder::class,
             TaskSeeder::class,
+            IncidentDemoSeeder::class,
         ]);
     }
 }

@@ -83,7 +83,7 @@ function handleOverlayClick(e) {
     >
       <transition name="scale">
         <div
-          class="w-full max-w-md rounded-2xl bg-white dark:bg-slate-900 shadow-xl p-5 space-y-4"
+          class="w-full max-w-md rounded-2xl bg-white dark:bg-slate-900 dark:border-2 dark:border-cyan-900 dark:shadow-slate-800 shadow-lg p-5 space-y-4"
         >
           <header class="flex items-center justify-between">
             <h2 class="text-sm font-semibold text-slate-900 dark:text-slate-50">
@@ -170,11 +170,13 @@ function handleOverlayClick(e) {
                   placeholder="Tag name"
                   class="flex-1 text-xs rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
-                <input
-                  v-model="newTagColor"
-                  type="color"
-                  class="w-10 h-8 rounded-md border border-slate-300 dark:border-slate-700"
-                />
+                <div class="relative w-5 h-5 ml-1">
+                  <input
+                    v-model="newTagColor"
+                    type="color"
+                    class="color-circle absolute inset-0 w-full h-full cursor-pointer"
+                  />
+                </div>
                 <button
                   type="button"
                   class="text-xs px-2 py-1 rounded-lg bg-slate-900 text-white hover:bg-slate-800 active:scale-95 transition"
@@ -248,4 +250,24 @@ function handleOverlayClick(e) {
   opacity: 0;
   transform: scale(0.95);
 }
+.color-circle {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+  border: 1;
+  border-radius: 9999px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #fff, 0 0 6px rgba(0,0,0,0.3);
+}
+
+/* Remove default chrome square swatch */
+.color-circle::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color-circle::-webkit-color-swatch {
+  border: none;
+  border-radius: 9999px;
+}
+
 </style>

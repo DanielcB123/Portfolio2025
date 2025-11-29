@@ -1,12 +1,14 @@
 <script setup>
 // Dashboard.vue
 import { onMounted, ref, computed } from 'vue';
+import { Link } from '@inertiajs/vue3';
 import axios from 'axios';
 import { useTasks } from '@/Composables/useTasks';
 import TaskColumn from '@/Components/TaskColumn.vue';
 import CreateTaskModal from '@/Components/CreateTaskModal.vue';
 import CommandPalette from '@/Components/CommandPalette.vue';
 import { toast } from 'vue3-toastify';
+
 
 
 const todoColumnRef       = ref(null);
@@ -276,7 +278,7 @@ async function handleLogout() {
 
   window.localStorage.removeItem('taskflow_api_key');
   toast.success('You have been logged out');
-  window.location.href = '/login';
+  window.location.href = '/';
 }
 
 /**
@@ -298,17 +300,65 @@ function handleMarkTaskDone(taskId) {
 
 
 <template>
-  <div class="min-h-screen bg-slate-100 dark:bg-slate-950">
-    <div class="max-w-6xl mx-auto px-4 py-6 space-y-4">
+  <!-- App background -->
+  <div
+    class="relative min-h-screen overflow-hidden bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50"
+  >
+
+
+
+    <!-- Decorative background layer -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+      <!-- Animated gradient mesh, light and dark handled with Tailwind classes -->
+      
+      <div
+        class="mesh-layer
+               bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.35)_0,_transparent_55%),radial-gradient(circle_at_bottom,_rgba(45,212,191,0.25)_0,_transparent_60%)]
+               dark:bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.6)_0,_transparent_55%),radial-gradient(circle_at_bottom,_rgba(15,23,42,0.9)_0,_rgba(15,23,42,1)_60%)]
+               animate-[mesh-move_45s_ease-in-out_infinite_alternate]"
+      ></div>
+
+      <!-- Subtle technical grid overlay -->
+      <div
+        class="grid-overlay
+              opacity-45
+              [background-image:linear-gradient(to_right,rgba(148,163,184,0.45)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.45)_1px,transparent_1px)]
+              [background-size:40px_40px]
+              dark:opacity-25
+              dark:mix-blend-soft-light
+              dark:[background-image:linear-gradient(to_right,rgba(15,23,42,0.85)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.85)_1px,transparent_1px)]"
+      ></div>
+    </div>
+
+    <!-- Main content, lifted above background -->
+    <div class="relative max-w-6xl mx-auto px-4 py-6 space-y-4">
+      <Link
+        href="/"
+        class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-slate-300/80 bg-white/80 px-4 py-1.5 text-xs text-slate-700 shadow shadow-slate-200/60 backdrop-blur transition hover:border-emerald-400/80 hover:text-emerald-600 hover:bg-white dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-300 dark:shadow-slate-900/40 dark:hover:border-emerald-400/80 dark:hover:text-emerald-300 dark:hover:bg-slate-900"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-3.5 w-3.5 opacity-70"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 6l-6 6 6 6M20 12H4" />
+        </svg>
+        Back to Portfolio
+      </Link>
       <!-- Header bar -->
       <header
-        class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+        class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between
+               bg-white/80 dark:bg-slate-900/80 backdrop-blur
+               rounded-2xl border border-slate-200/60 dark:border-slate-800 px-4 py-3"
       >
         <!-- Left: title / badge -->
         <div class="flex items-center gap-2">
-          <span class="text-lg font-semibold">TaskFlow</span>
+          <span class="text-lg font-semibold dark:text-slate-100">TaskFlow</span>
           <span
-            class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-700 whitespace-nowrap"
+            class="text-xs px-2 py-1 rounded-full bg-blue-100/80 text-blue-700 whitespace-nowrap"
           >
             MediaHaus Squad
           </span>
@@ -324,7 +374,7 @@ function handleMarkTaskDone(taskId) {
               v-model="search"
               type="search"
               placeholder="Search tasks..."
-              class="w-full sm:w-48 text-sm rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              class="w-full sm:w-48 text-sm rounded-lg border border-slate-300 text-slate-600 dark:text-slate-400 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
               @keyup.enter="loadTasks"
             />
             <button
@@ -393,13 +443,13 @@ function handleMarkTaskDone(taskId) {
               </button>
             </div>
           </div>
-
         </div>
       </header>
 
-      <!-- Optional little row to show current filter -->
       <div
-        class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-500 mt-2"
+        class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-500 mt-2
+               bg-white/80 dark:bg-slate-900/80 backdrop-blur
+               rounded-2xl border border-slate-200/60 dark:border-slate-800 px-4 py-3"
       >
         <div class="flex items-center gap-2">
           <span>Filter:</span>
@@ -430,7 +480,6 @@ function handleMarkTaskDone(taskId) {
           Press Cmd+K or Ctrl+K for the command palette
         </div>
       </div>
-
 
       <!-- Columns -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-2">
@@ -480,9 +529,6 @@ function handleMarkTaskDone(taskId) {
           @assign-task="handleAssign"
         />
       </div>
-
-
-
     </div>
 
     <CreateTaskModal
@@ -503,7 +549,43 @@ function handleMarkTaskDone(taskId) {
       @switch-column="handleSwitchColumn"
       @mark-task-done="handleMarkTaskDone"
     />
-
-
   </div>
 </template>
+
+
+
+<style scoped>
+.mesh-layer {
+  position: absolute;
+  inset: -20%;
+  filter: blur(40px);
+  opacity: 0.9;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Grid overlay base layout, colors are handled by Tailwind classes */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Gradient mesh motion, reused like the welcome/login page concept */
+@keyframes mesh-move {
+  0% {
+    transform: translate3d(-4%, -3%, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(3%, -2%, 0) scale(1.03);
+  }
+  50% {
+    transform: translate3d(4%, 3%, 0) scale(1.05);
+  }
+  75% {
+    transform: translate3d(-2%, 4%, 0) scale(1.02);
+  }
+  100% {
+    transform: translate3d(-4%, -3%, 0) scale(1.04);
+  }
+}
+</style>

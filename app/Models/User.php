@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Team;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -48,8 +50,15 @@ class User extends Authenticatable
     }
 
 
-    public function team()
+    public function teams(): HasMany
     {
-        return $this->belongsTo(Team::class);
+        // for now, “teams” means “teams I own”
+        return $this->hasMany(Team::class, 'owner_id');
     }
+
+    public function ownedTeams(): HasMany
+    {
+        return $this->hasMany(Team::class, 'owner_id');
+    }
+
 }

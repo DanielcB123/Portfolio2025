@@ -241,35 +241,43 @@ function submitAddTag() {
       </div>
 
       <!-- Inline add tag control -->
-      <div v-if="isAddingTag" class="flex items-center gap-1 mt-1">
-        <input
-          v-model="newTagName"
-          type="text"
-          placeholder="Tag label"
-          class="flex-1 text-[11px] rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 px-2 py-0.5 focus:outline-none focus:ring-1 focus:ring-blue-400"
-        />
-        <input
-          v-model="newTagColor"
-          type="color"
-          class="w-7 h-7 rounded-md border border-slate-300 dark:border-slate-600"
-        />
-        <button
-          type="button"
-          class="text-[11px] px-2 py-0.5 rounded-md bg-blue-600 text-white hover:bg-blue-700
-                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
-          @click="submitAddTag"
-        >
-          Save
-        </button>
-        <button
-          type="button"
-          class="text-[11px] px-2 py-0.5 rounded-md border border-slate-300 dark:border-slate-600
-                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
-          @click="cancelAddTag"
-        >
-          Cancel
-        </button>
-      </div>
+<div v-if="isAddingTag" class="flex items-center gap-1 mt-1">
+  <input
+    v-model="newTagName"
+    type="text"
+    placeholder="Tag label"
+    class="flex-1 dark:text-slate-400 text-[11px] rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 px-2 py-0.5 focus:outline-none focus:ring-1 focus:ring-blue-400"
+  />
+
+  <!-- Circular color picker -->
+  <div class="relative w-5 h-5 ml-1">
+    <input
+      v-model="newTagColor"
+      type="color"
+      class="color-circle absolute inset-0 w-full h-full cursor-pointer"
+    />
+  </div>
+
+
+  <button
+    type="button"
+    class="text-[11px] px-2 ml-1 py-0.5 rounded-md bg-blue-600 text-white hover:bg-blue-700
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+    @click="submitAddTag"
+  >
+    Save
+  </button>
+
+  <button
+    type="button"
+    class="text-[11px] px-2 ml-1 dark:text-slate-500 dark:hover:text-slate-400 py-0.5 rounded-md border border-slate-300 dark:border-slate-600
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+    @click="cancelAddTag"
+  >
+    Cancel
+  </button>
+</div>
+
 
       <button
         v-else
@@ -310,7 +318,7 @@ function submitAddTag() {
       <div class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
         <select
           v-model="localAssignedId"
-          class="text-[11px] dark:text-white rounded-md border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-900 px-1 py-0.5 focus:outline-none focus:ring-1 focus:ring-blue-400"
+          class="min-w-[8rem] text-[11px] dark:text-white rounded-md border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-900 px-2 py-0.5 focus:outline-none focus:ring-1 focus:ring-blue-400"
           @change="onAssignChange"
         >
           <option value="">Unassigned</option>
@@ -336,3 +344,28 @@ function submitAddTag() {
     </div>
   </div>
 </template>
+
+<style scoped>
+
+.color-circle {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #fff, 0 0 6px rgba(0,0,0,0.3);
+}
+
+/* Remove default chrome square swatch */
+.color-circle::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color-circle::-webkit-color-swatch {
+  border: none;
+  border-radius: 9999px;
+}
+
+
+</style>

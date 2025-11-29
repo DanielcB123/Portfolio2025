@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Log;
 
 class TaskController extends Controller
 {
@@ -42,57 +43,67 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
-        $user = $request->user();
-    
-        $data = $request->validate([
+        $user = $request->user(); // resolved by ApiKeyAuth
+
+        \Log::info('TaskController@store called', [
+            'user_id' => optional($user)->id,
+            'user_team_id' => $user->team_id ?? null,
+        ]);
+
+        $validated = $request->validate([
             'title'       => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
-            'status'      => ['required', Rule::in(['todo', 'in_progress', 'done'])],
-            'priority'    => ['required', Rule::in(['low', 'medium', 'high'])],
+            'status'      => ['required', 'in:todo,doing,done'], // we may want to sync this with in_progress later
+            'priority'    => ['required', 'in:low,medium,high'],
             'assigned_to' => ['nullable', 'integer', 'exists:users,id'],
-            'tags'        => ['array'],
-            'tags.*.name' => ['required', 'string', 'max:50'],
-            'tags.*.color'=> ['required', 'string', 'max:20'],
+            'team_id'     => ['nullable', 'integer', 'exists:teams,id'],
         ]);
-    
-        $teamId = $user->team_id;
-    
-        $maxPosition = Task::where('team_id', $teamId)
-            ->where('status', $data['status'])
-            ->max('position');
-    
-        $tagsPayload = $data['tags'] ?? [];
-        unset($data['tags']);
-    
-        $task = Task::create([
-            'team_id'     => $teamId,
-            'title'       => $data['title'],
-            'description' => $data['description'] ?? null,
-            'status'      => $data['status'],
-            'priority'    => $data['priority'],
-            'assigned_to' => $data['assigned_to'] ?? null,
-            'created_by'  => $user->id,
-            'position'    => ($maxPosition ?? 0) + 1,
-            'completed_at'=> $data['status'] === 'done' ? Carbon::now() : null,
-        ]);
-    
-        if (!empty($tagsPayload)) {
-            foreach ($tagsPayload as $tag) {
-                $task->tags()->create([
-                    'name'  => $tag['name'],
-                    'color' => $tag['color'],
+
+        // Prefer explicit team_id from request, otherwise fall back to user's team
+        $teamId = $validated['team_id'] ?? null;
+
+        if (! $teamId) {
+            if (! empty($user->current_team_id)) {
+                $teamId = $user->current_team_id;
+            } elseif (! empty($user->team_id)) {
+                $teamId = $user->team_id;
+            } else {
+                \Log::warning('TaskController@store: no team resolved', [
+                    'user_id' => optional($user)->id,
                 ]);
+
+                return response()->json([
+                    'success' => false,
+                    'message' => 'No team could be resolved for this user. Please create or select a team first.',
+                ], 422);
             }
         }
-    
+
+        $task = Task::create([
+            'team_id'      => $teamId,
+            'title'        => $validated['title'],
+            'description'  => $validated['description'] ?? null,
+            'status'       => $validated['status'],
+            'priority'     => $validated['priority'],
+            'assigned_to'  => $validated['assigned_to'] ?? null,
+            'created_by'   => $user->id,
+            'position'     => 1,
+            'completed_at' => null,
+        ]);
+
+        // load relations so UI gets a rich object
         $task->load(['assignedUser', 'creator', 'tags']);
-    
+
+        \Log::info('TaskController@store: task created', [
+            'task_id' => $task->id,
+            'team_id' => $task->team_id,
+        ]);
+
         return response()->json([
             'success' => true,
             'task'    => $task,
-        ]);
+        ], 201);
     }
-    
 
     public function update(Request $request, Task $task)
     {
