@@ -794,32 +794,6 @@ onBeforeUnmount(() => {
                 </div>
               </div>
 
-              <!-- Controls hint -->
-              <div class="mt-2 flex flex-col items-center justify-center text-[10px] text-slate-500 dark:text-slate-400">
-                <div class="flex items-center gap-1">
-                  <span class="mr-1 uppercase tracking-[0.16em] text-[9px] text-slate-400">
-                    Move
-                  </span>
-
-                  <!-- WASD keys -->
-                  <span class="inline-flex items-center gap-0.5">
-                    <span class="key-pill">W</span>
-                    <span class="key-pill">A</span>
-                    <span class="key-pill">S</span>
-                    <span class="key-pill">D</span>
-                  </span>
-
-                  <span class="mx-1 text-[9px] text-slate-400">or</span>
-
-                  <!-- Arrow keys -->
-                  <span class="inline-flex items-center gap-0.5">
-                    <span class="key-pill">↑</span>
-                    <span class="key-pill">←</span>
-                    <span class="key-pill">↓</span>
-                    <span class="key-pill">→</span>
-                  </span>
-                </div>
-              </div>
 
 
               <div class="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs">
@@ -833,10 +807,6 @@ onBeforeUnmount(() => {
                     <span v-else-if="isRunning">Restart</span>
                     <span v-else>Play again</span>
                   </button>
-                </div>
-
-                <div class="text-[11px] text-slate-500 dark:text-slate-400">
-                  Tip, grab stars when the arena is clear. They boost score, but also make orbs stronger.
                 </div>
               </div>
             </div>

@@ -11,6 +11,10 @@ const props = defineProps({
   },
 });
 
+const mobileMenuOpen = ref(false);
+const toggleMobileMenu = () => mobileMenuOpen.value = !mobileMenuOpen.value;
+const closeMobileMenu = () => mobileMenuOpen.value = false;
+
 const incidents = computed(() => props.incidents || []);
 
 // Filters and state
@@ -523,83 +527,178 @@ function selectIncident(id) {
     ></div>
     <!-- Header -->
     <div class="relative z-10">
-      <header
-        class="border-b py-2 border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80"
-      >      
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        <div class="flex items-center gap-3">
-          <div
-            class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-cyan-500 text-xs font-semibold text-slate-950 shadow shadow-emerald-400/60"
-          >
-            IC
-          </div>
-          <div>
-            <div class="text-[11px] font-semibold uppercase tracking-[0.22em] text-emerald-500 dark:text-emerald-400">
-              Incident Command Center
-            </div>
-            <div class="text-[11px] text-slate-500 dark:text-slate-400">
-              Operations grade dashboard demo
-            </div>
-          </div>
+  <header
+    class="border-b py-2 border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80"
+  >
+    <div
+      class="mx-auto max-w-6xl px-4 sm:px-6 py-2 flex items-center justify-between"
+    >
+      <!-- Left: Brand -->
+      <div class="flex items-center gap-3">
+        <div
+          class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-cyan-500 text-xs font-semibold text-slate-950 shadow shadow-emerald-400/60"
+        >
+          IC
         </div>
-
-        <div class="flex items-center gap-3">
-          <!-- Theme toggle -->
-          <button
-            type="button"
-            class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/70 px-3 py-1.5 text-[11px] text-slate-700 shadow shadow-slate-200/60 backdrop-blur transition hover:border-emerald-400/80 hover:text-emerald-600 dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-300 dark:shadow-slate-900/40 dark:hover:border-emerald-400/80 dark:hover:text-emerald-300"
-            @click="applyTheme(theme === 'dark' ? 'light' : 'dark')"
-          >
-            <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-amber-300">
-              <span v-if="theme === 'dark'">☾</span>
-              <span v-else>☀</span>
-            </span>
-            <span class="hidden sm:inline">
-              <span v-if="theme === 'dark'">Dark mode</span>
-              <span v-else>Light mode</span>
-            </span>
-          </button>
-
-          <button
-            type="button"
-            @click="openCreateIncident"
-            class="inline-flex items-center gap-1 rounded-full bg-emerald-500 px-3 py-1 text-[11px] font-semibold text-slate-950 shadow hover:bg-emerald-400"
-          >
-            <span class="text-sm">＋</span>
-            New incident
-          </button>
-
-          <div
-            v-if="stats.sev1Open > 0"
-            class="inline-flex items-center gap-2 rounded-full border border-rose-300 bg-rose-50 px-3 py-1 text-[11px] text-rose-700 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-100"
-          >
-            <span class="relative flex h-2 w-2">
-              <span
-                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75"
-              ></span>
-              <span class="relative inline-flex h-2 w-2 rounded-full bg-rose-400"></span>
-            </span>
-            {{ stats.sev1Open }} active SEV1
+        <div>
+          <div class="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-emerald-500 dark:text-emerald-400">
+            Incident Command Center
           </div>
-
-          <button
-            type="button"
-            class="text-xs px-3 py-1.5 dark:text-white rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 active:scale-95 transition"
-            @click="handleLogout"
-          >
-            Logout
-          </button>
-
-          <Link
-            href="/"
-            class="text-[11px] inline-flex items-center gap-1 rounded-full border border-slate-300 px-3 py-1 text-slate-700 hover:border-emerald-400 hover:text-emerald-500 dark:border-slate-700 dark:text-slate-200 dark:hover:text-emerald-300"
-          >
-            <span aria-hidden="true">←</span>
-            Back to portfolio
-          </Link>
+          <div class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400">
+            Operations grade dashboard demo
+          </div>
         </div>
       </div>
-    </header>
+
+      <!-- Right: hamburger only on mobile -->
+      <button
+        type="button"
+        class="md:hidden inline-flex items-center mb-2 justify-center rounded-full border border-slate-300 bg-white px-2.5 py-1.5 text-slate-700 shadow-sm hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
+        @click="toggleMobileMenu"
+      >
+        <!-- Menu icon -->
+        <svg
+          v-if="!mobileMenuOpen"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+
+        <!-- Close icon -->
+        <svg
+          v-else
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Desktop right controls -->
+      <div class="hidden md:flex items-center gap-3">
+            <!-- Mobile: New Incident + SEV1 moved below header -->
+    <div class=" mt-3 px-4 flex items-center gap-3">
+      <button
+        @click="openCreateIncident"
+        class="inline-flex items-center gap-1 rounded-full bg-emerald-500 px-3 py-1 text-[11px] font-semibold text-slate-950 shadow hover:bg-emerald-400"
+      >
+        <span class="text-sm">＋</span>
+        New incident
+      </button>
+
+      <div
+        v-if="stats.sev1Open > 0"
+        class="inline-flex items-center gap-2 rounded-full border border-rose-300 bg-rose-50 px-3 py-1 text-[11px] text-rose-700 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-100"
+      >
+        <span class="relative flex h-2 w-2">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-rose-400"></span>
+        </span>
+        {{ stats.sev1Open }} active SEV1
+      </div>
+    </div>
+        <!-- Theme toggle -->
+        <button
+          type="button"
+          class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/70 px-3 py-1.5 text-[11px] text-slate-700 shadow dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-300 hover:border-emerald-400/80 dark:hover:border-emerald-400/80"
+          @click="applyTheme(theme === 'dark' ? 'light' : 'dark')"
+        >
+          <span
+            class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 dark:text-amber-300"
+          >
+            <span v-if="theme === 'dark'">☾</span>
+            <span v-else>☀</span>
+          </span>
+          <span v-if="theme === 'dark'">Dark mode</span>
+          <span v-else>Light mode</span>
+        </button>
+
+        <button
+          type="button"
+          class="text-xs px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 transition"
+          @click="handleLogout"
+        >
+          Logout
+        </button>
+
+        <Link
+          href="/"
+          class="text-[11px] inline-flex items-center gap-1 rounded-full border border-slate-300 px-3 py-1 text-slate-700 hover:border-emerald-400 hover:text-emerald-500 dark:border-slate-700 dark:text-slate-200"
+        >
+          ← Back to portfolio
+        </Link>
+      </div>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div
+      v-if="mobileMenuOpen"
+      class="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 shadow-lg p-3 text-[12px]"
+    >
+      <button
+        class="w-full flex justify-between items-center px-2 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+        @click="
+          applyTheme(theme === 'dark' ? 'light' : 'dark');
+          closeMobileMenu();
+        "
+      >
+        <span>Light / Dark mode</span>
+        <span v-if="theme === 'dark'">☾</span>
+        <span v-else>☀</span>
+      </button>
+
+      <button
+        class="w-full flex justify-between items-center px-2 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 mt-1"
+        @click="
+          handleLogout();
+          closeMobileMenu();
+        "
+      >
+        Logout
+      </button>
+
+      <Link
+        href="/"
+        class="w-full flex justify-between items-center px-2 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 mt-1"
+        @click="closeMobileMenu"
+      >
+        <span>Back to portfolio</span>
+        <span aria-hidden="true">←</span>
+      </Link>
+    </div>
+
+    <!-- Mobile: New Incident + SEV1 moved below header -->
+    <div class="md:hidden mt-3 px-4 flex items-center gap-3">
+      <button
+        @click="openCreateIncident"
+        class="inline-flex items-center gap-1 rounded-full bg-emerald-500 px-3 py-1 text-[11px] font-semibold text-slate-950 shadow hover:bg-emerald-400"
+      >
+        <span class="text-sm">＋</span>
+        New incident
+      </button>
+
+      <div
+        v-if="stats.sev1Open > 0"
+        class="inline-flex items-center gap-2 rounded-full border border-rose-300 bg-rose-50 px-3 py-1 text-[11px] text-rose-700 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-100"
+      >
+        <span class="relative flex h-2 w-2">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-rose-400"></span>
+        </span>
+        {{ stats.sev1Open }} active SEV1
+      </div>
+    </div>
+
+  </header>
 
     <main class="mx-auto max-w-6xl px-6 py-6 space-y-5">
       <!-- Summary cards -->
@@ -775,7 +874,7 @@ function selectIncident(id) {
             </span>
           </div>
 
-          <div class="space-y-2 overflow-y-auto max-h-[460px] pr-1 scroll-thin">
+          <div class="space-y-2 overflow-y-auto max-h-[565px] pr-1 scroll-thin">
             <button
               v-for="incident in filteredIncidents"
               :key="incident.id"
@@ -948,7 +1047,7 @@ function selectIncident(id) {
                 </div>
 
                 <!-- scrollable wrapper -->
-                <div class="max-h-[260px] overflow-y-auto pr-1 scroll-thin">
+                <div class="max-h-[395px] overflow-y-auto pr-1 scroll-thin">
                   <ol
                     class="relative border-l border-slate-200 pl-3 space-y-3 text-[11px] dark:border-slate-700/70"
                   >
