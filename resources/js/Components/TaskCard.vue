@@ -170,7 +170,7 @@ function submitAddTag() {
           v-if="isEditingTitle"
           v-model="localTitle"
           type="text"
-          class="w-full text-sm font-semibold bg-transparent border-b border-blue-400 outline-none
+          class="w-full rounded-md text-sm font-semibold bg-transparent border-b border-blue-400 outline-none
                  focus-visible:ring-0"
           @blur="onTitleBlur"
           @keyup.enter.prevent="onTitleBlur"

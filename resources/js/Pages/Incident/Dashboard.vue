@@ -516,11 +516,13 @@ function selectIncident(id) {
   <div
     class="relative min-h-screen overflow-hidden bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50"
   >
-    <div
-      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.12)_0,_transparent_55%),linear-gradient(to_bottom,_rgba(15,23,42,0.04)_0,_rgba(15,23,42,0.35)_55%)] dark:bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.12)_0,_transparent_55%),linear-gradient(to_bottom,_rgba(15,23,42,0.7)_0,_rgba(15,23,42,1)_55%)]"
+    <div class="pointer-events-none absolute inset-0
+       bg-[radial-gradient(circle_at_top,_rgba(18,163,184,0.2)_0,_transparent_55%),_linear-gradient(to_bottom,_rgba(15,23,42,0.04)_0,_rgba(15,23,42,0.35)_55%),_radial-gradient(circle_at_bottom,_rgba(56,189,248,0.25)_0,_transparent_60%)]
+       dark:bg-[radial-gradient(circle_at_top,_rgba(18,163,184,0.25)_0,_transparent_55%),_linear-gradient(to_bottom,_rgba(15,23,42,0.7)_0,_rgba(15,23,42,1)_55%),_radial-gradient(circle_at_bottom,_rgba(56,189,248,0.1)_0,_rgba(15,23,42,1)_60%)]"
+
     ></div>
     <div
-      class="pointer-events-none absolute inset-0 opacity-30 mix-blend-soft-light
+      class="pointer-events-none absolute inset-0 opacity-30 dark:mix-blend-soft-light
              [background-image:linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)]
              [background-size:56px_56px]
              dark:[background-image:linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)]"
@@ -549,11 +551,31 @@ function selectIncident(id) {
           </div>
         </div>
       </div>
+            <!-- Mobile: New Incident + SEV1 moved below header -->
+            <div class="px-4 flex items-center gap-3">
+              <button
+                @click="openCreateIncident"
+                class="inline-flex items-center gap-1 rounded-full bg-emerald-500 px-3 py-1 text-[11px] font-semibold text-slate-950 shadow hover:bg-emerald-400"
+              >
+                <span class="text-sm">＋</span>
+                <p class="hidden sm:flex">New incident</p>
+              </button>
 
+              <div
+                v-if="stats.sev1Open > 0"
+                class="inline-flex hidden sm:flex items-center gap-2 rounded-full border border-rose-300 bg-rose-50 px-3 py-1 text-[11px] text-rose-700 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-100"
+              >
+                <span class="relative flex h-2 w-2">
+                  <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75"></span>
+                  <span class="relative inline-flex h-2 w-2 rounded-full bg-rose-400"></span>
+                </span>
+                {{ stats.sev1Open }} active SEV1
+              </div>
+            </div>
       <!-- Right: hamburger only on mobile -->
       <button
         type="button"
-        class="md:hidden inline-flex items-center mb-2 justify-center rounded-full border border-slate-300 bg-white px-2.5 py-1.5 text-slate-700 shadow-sm hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
+        class="md:hidden inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-2.5 py-1.5 text-slate-700 shadow-sm hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
         @click="toggleMobileMenu"
       >
         <!-- Menu icon -->
@@ -585,27 +607,7 @@ function selectIncident(id) {
 
       <!-- Desktop right controls -->
       <div class="hidden md:flex items-center gap-3">
-            <!-- Mobile: New Incident + SEV1 moved below header -->
-    <div class=" mt-3 px-4 flex items-center gap-3">
-      <button
-        @click="openCreateIncident"
-        class="inline-flex items-center gap-1 rounded-full bg-emerald-500 px-3 py-1 text-[11px] font-semibold text-slate-950 shadow hover:bg-emerald-400"
-      >
-        <span class="text-sm">＋</span>
-        New incident
-      </button>
 
-      <div
-        v-if="stats.sev1Open > 0"
-        class="inline-flex items-center gap-2 rounded-full border border-rose-300 bg-rose-50 px-3 py-1 text-[11px] text-rose-700 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-100"
-      >
-        <span class="relative flex h-2 w-2">
-          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75"></span>
-          <span class="relative inline-flex h-2 w-2 rounded-full bg-rose-400"></span>
-        </span>
-        {{ stats.sev1Open }} active SEV1
-      </div>
-    </div>
         <!-- Theme toggle -->
         <button
           type="button"
@@ -677,7 +679,7 @@ function selectIncident(id) {
     </div>
 
     <!-- Mobile: New Incident + SEV1 moved below header -->
-    <div class="md:hidden mt-3 px-4 flex items-center gap-3">
+    <!-- <div class="md:hidden mt-3 px-4 flex items-center gap-3">
       <button
         @click="openCreateIncident"
         class="inline-flex items-center gap-1 rounded-full bg-emerald-500 px-3 py-1 text-[11px] font-semibold text-slate-950 shadow hover:bg-emerald-400"
@@ -696,7 +698,7 @@ function selectIncident(id) {
         </span>
         {{ stats.sev1Open }} active SEV1
       </div>
-    </div>
+    </div> -->
 
   </header>
 
@@ -863,10 +865,10 @@ function selectIncident(id) {
       </section>
 
       <!-- Main grid: list + details -->
-      <section class="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)]">
+      <section class="grid w-full max-w-full gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)]">
         <!-- Incident list -->
         <div
-          class="rounded-2xl border border-slate-200 bg-white p-4 shadow-lg shadow-slate-900/5 flex flex-col dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-slate-950/60"
+          class="w-full max-w-full rounded-2xl border border-slate-200 bg-white p-4 shadow-lg shadow-slate-900/5 flex flex-col dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-slate-950/60"
         >
           <div class="mb-2 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
             <span>
@@ -888,7 +890,7 @@ function selectIncident(id) {
               ]"
               @click="selectIncident(incident.id)"
             >
-              <div class="flex items-center justify-between gap-2">
+              <div class="flex flex-wrap items-center justify-between gap-2">
                 <div class="flex items-center gap-2">
                   <span
                     class="rounded-full px-2 py-0.5 text-[10px] font-mono"
@@ -908,7 +910,7 @@ function selectIncident(id) {
                 </span>
               </div>
 
-              <div class="flex items-center justify-between gap-2 text-[11px] text-slate-500 dark:text-slate-400">
+              <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500 dark:text-slate-400">
                 <span class="truncate">
                   <span class="text-slate-500">System</span>
                   <span class="mx-1">·</span>
@@ -946,7 +948,7 @@ function selectIncident(id) {
 
         <!-- Incident details -->
         <div
-          class="rounded-2xl border border-slate-200 bg-white p-4 shadow-lg shadow-slate-900/5 flex flex-col dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-slate-950/60"
+          class="w-full max-w-full rounded-2xl border border-slate-200 bg-white p-4 shadow-lg shadow-slate-900/5 flex flex-col dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-slate-950/60"
         >
           <template v-if="selectedIncident">
             <!-- Header -->
@@ -1146,7 +1148,7 @@ function selectIncident(id) {
                       </div>
                     </li>
                   </ul>
-                  <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-2 mt-2">
                     <button
                       type="button"
                       @click="openFollowUpModal"
@@ -1190,10 +1192,10 @@ function selectIncident(id) {
     <transition name="fade">
       <div
         v-if="isCreateOpen"
-        class="fixed inset-0 z-[200] flex items-center justify-center bg-slate-900/40 backdrop-blur-sm dark:bg-slate-950/70"
+        class="fixed inset-0 z-[200] flex items-start justify-center overflow-y-auto bg-slate-900/40 backdrop-blur-sm dark:bg-slate-950/70"
       >
         <div
-          class="w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl shadow-slate-900/20 dark:border-slate-800 dark:bg-slate-900 dark:shadow-slate-950/80"
+          class="w-full sm:mt-32 max-w-lg rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl shadow-slate-900/20 dark:border-slate-800 dark:bg-slate-900 dark:shadow-slate-950/80"
         >
           <div class="flex items-start justify-between gap-3 mb-3">
             <div>

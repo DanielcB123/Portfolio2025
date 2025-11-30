@@ -87,22 +87,23 @@ import { Head, Link } from '@inertiajs/vue3';
               />
             </div>
             <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              I grew up around hands on work, then spent years in construction before moving into
-              software. That background shaped how I think about building things. You design for the
-              people on the ground, you expect edge cases, and you fix what breaks without drama.
+              I grew up around hands on work, having spent years in the carpenters union before graduating university 
+              with a degree in computer science and moving into software. That background shaped how I think about
+              building things. You design for the people on the ground, you expect edge cases, and you fix what 
+              breaks and keep moving forward.
             </p>
 
             <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              In my last roles I worked on real world systems for HVAC, electrical, and plumbing
-              operations. Dispatch boards, technician mobile apps, invoicing, payments, and all of the
-              glue that sits between those pieces. I have shipped features under live traffic, solved
-              late night outages, and cared about the logs as much as the layout.
+              In my recent roles I’ve worked on large, real-world operational systems, from a nationwide SaaS 
+              warranty platform coordinating service providers across all 50 states to HVAC, electrical, plumbing, 
+              and solar applications used daily by field teams. I’ve built and maintained the dispatch flows, 
+              mobile tools, internal portals, and all the glue that connects them. I’ve shipped features under 
+              live traffic, handled late-night outages, and cared as much about reliability and logs as I do about 
+              clean UX.
             </p>
 
             <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              Now I am focused on building clear, honest products that help teams make better
-              decisions. I like work that blends backend structure with thoughtful interfaces and uses
-              data to answer questions, not just fill dashboards.
+              My current focus is on building reliable tools that help teams understand their operations and act with confidence. I like work where backend design, UI clarity, and meaningful data come together to solve real problems instead of creating more noise.
             </p>
 
             <div
@@ -116,12 +117,12 @@ import { Head, Link } from '@inertiajs/vue3';
               <span
                 class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 dark:border-slate-700/80 dark:bg-slate-900/80"
               >
-                Laravel, Vue, React Native, SQL
+                Practical, calm under pressure
               </span>
               <span
                 class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 dark:border-slate-700/80 dark:bg-slate-900/80"
               >
-                Comfortable in legacy and greenfield
+                Comfortable in legacy or greenfield
               </span>
             </div>
           </section>
@@ -136,7 +137,7 @@ import { Head, Link } from '@inertiajs/vue3';
             <div class="relative space-y-4">
               <!-- Card: What I value on a team -->
               <article
-                class="group rounded-2xl border border-slate-200/80 bg-white/90 p-4 text-slate-800 shadow-2xl shadow-slate-200/80 backdrop-blur-lg transition-transform duration-300 hover:-translate-y-1 hover:border-emerald-400/80 hover:shadow-emerald-500/30 dark:border-slate-700/70 dark:bg-slate-950/90 dark:text-slate-50 dark:shadow-slate-950/80 dark:hover:shadow-emerald-500/40"
+                class="group rounded-2xl border border-slate-200/80 bg-white/90 p-4 text-slate-800 shadow-2xl shadow-slate-200/80 backdrop-blur-lg transition-transform duration-300 hover:border-emerald-400/80 hover:shadow-emerald-500/30 dark:border-slate-700/70 dark:bg-slate-950/90 dark:text-slate-50 dark:shadow-slate-950/80 dark:hover:shadow-emerald-500/40"
               >
                 <div class="flex items-center justify-between gap-4">
                   <h2 class="text-sm font-semibold text-slate-900 dark:text-slate-50">
@@ -149,10 +150,8 @@ import { Head, Link } from '@inertiajs/vue3';
                   </span>
                 </div>
 
-                <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
-                  Clear ownership, respectful review, and room to ship. I like small loops with design,
-                  product, and ops so that features match reality, not just the ticket description.
-                </p>
+                <p class="mt-2 text-xs text-slate-600 dark:text-slate-300"> I value constructive reviews, and the space to move quickly. Short 
+                  feedback loops with design, product, and ops keep features aligned with how the work actually happens. </p>
 
                 <ul class="mt-3 space-y-1.5 text-[11px] text-slate-600 dark:text-slate-300">
                   <li>• Honest communication and calm debugging</li>
@@ -163,7 +162,7 @@ import { Head, Link } from '@inertiajs/vue3';
 
               <!-- Card: How I like to work -->
               <article
-                class="about-fade-3 group rounded-2xl border border-slate-200/80 bg-gradient-to-br from-white via-slate-50 to-slate-100 p-4 text-slate-800 shadow-2xl shadow-slate-200/80 transition-transform duration-300 hover:-translate-y-1 hover:border-blue-400/80 hover:shadow-blue-500/30 dark:border-slate-700/70 dark:bg-gradient-to-br dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-slate-50 dark:shadow-slate-950/80 dark:hover:shadow-blue-500/40"
+                class="group rounded-2xl border border-slate-200/80 bg-white/90 p-4 text-slate-800 shadow-2xl shadow-slate-200/80 backdrop-blur-lg transition-transform duration-300 hover:border-emerald-400/80 hover:shadow-emerald-500/30 dark:border-slate-700/70 dark:bg-slate-950/90 dark:text-slate-50 dark:shadow-slate-950/80 dark:hover:shadow-emerald-500/40"
               >
                 <div class="flex items-center justify-between gap-4">
                   <h2 class="text-sm font-semibold text-slate-900 dark:text-slate-50">
@@ -190,7 +189,7 @@ import { Head, Link } from '@inertiajs/vue3';
 
               <!-- Mini timeline -->
               <article
-                class="about-fade-4 rounded-2xl border border-slate-200/80 bg-white/90 p-4 text-slate-800 shadow-2xl shadow-slate-200/80 backdrop-blur-lg dark:border-slate-700/70 dark:bg-slate-950/90 dark:text-slate-50 dark:shadow-slate-950/80"
+                class="group rounded-2xl border border-slate-200/80 bg-white/90 p-4 text-slate-800 shadow-2xl shadow-slate-200/80 backdrop-blur-lg transition-transform duration-300 hover:border-emerald-400/80 hover:shadow-emerald-500/30 dark:border-slate-700/70 dark:bg-slate-950/90 dark:text-slate-50 dark:shadow-slate-950/80 dark:hover:shadow-emerald-500/40"
               >
                 <h2 class="text-sm font-semibold text-slate-900 dark:text-slate-50">
                   A quick timeline
@@ -223,8 +222,23 @@ import { Head, Link } from '@inertiajs/vue3';
                         Enterprise operations software
                       </p>
                       <p class="text-slate-500 dark:text-slate-400">
-                        Built tools for HVAC and service companies with live dispatch, billing, and
+                        Built tools for service companies with live dispatch, call center, billing, and
                         technician apps.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="flex gap-3">
+                    <div
+                      class="mt-1 h-5 w-5 flex-none rounded-full bg-indigo-500/10 text-[10px] font-semibold text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-300 flex items-center justify-center"
+                    >
+                      03
+                    </div>
+                    <div>
+                      <p class="font-medium text-slate-900 dark:text-slate-100">
+                        Nationwide SaaS warranty platform
+                      </p>
+                      <p class="text-slate-500 dark:text-slate-400">
+                        Built tools connecting customers, manufacturers, and service providers across all 50 states.
                       </p>
                     </div>
                   </li>
@@ -232,7 +246,7 @@ import { Head, Link } from '@inertiajs/vue3';
                     <div
                       class="mt-1 h-5 w-5 flex-none rounded-full bg-blue-500/10 text-[10px] font-semibold text-blue-700 dark:bg-blue-500/20 dark:text-blue-300 flex items-center justify-center"
                     >
-                      03
+                      04
                     </div>
                     <div>
                       <p class="font-medium text-slate-900 dark:text-slate-100">

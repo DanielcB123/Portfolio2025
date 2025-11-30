@@ -74,7 +74,7 @@ function emptyIcon() {
 <template>
   <div
     class="flex flex-col rounded-2xl bg-slate-50 dark:bg-slate-900/40 border p-3 min-h-[260px]
-           transition-colors duration-200"
+           transition-colors duration-200 dark:shadow-lg dark:shadow-slate-900/20"
     :class="[
       'border-slate-200 dark:border-slate-700',
       isDragOver

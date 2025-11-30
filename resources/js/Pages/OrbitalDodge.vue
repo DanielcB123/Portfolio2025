@@ -115,7 +115,7 @@ function qualifiesForTopTen(newScore) {
 
   const current = leaderboard.value.slice().sort((a, b) => b.score - a.score);
 
-  if (current.length < 10) {
+  if (current.length < 5) {
     return true;
   }
 
@@ -559,7 +559,7 @@ onBeforeUnmount(() => {
 
     <!-- Background gradients and grid, similar to Incident Command -->
     <div
-      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.16)_0,_transparent_55%),linear-gradient(to_bottom,_rgba(15,23,42,0.04)_0,_rgba(15,23,42,0.4)_55%)] dark:bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.16)_0,_transparent_55%),linear-gradient(to_bottom,_rgba(15,23,42,0.7)_0,_rgba(15,23,42,1)_55%)]"
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.16)_0,_transparent_55%),linear-gradient(to_bottom,_rgba(15,23,42,0.04)_0,_rgba(15,23,42,0.4)_55%)] dark:bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.16)_0,_transparent_55%),linear-gradient(to_bottom,_rgba(56,189,248,0.15)_0,_rgba(15,23,42,1)_55%)]"
     ></div>
     <div
       class="pointer-events-none absolute inset-0 opacity-30 mix-blend-soft-light [background-image:linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] [background-size:56px_56px] dark:[background-image:linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)]"
@@ -1131,7 +1131,8 @@ onBeforeUnmount(() => {
 
 /* Scale down and animate in legend */
 .nova-render--legend {
-  width: 100%;
+  position: absolute;
+  width: 18px;
   height: 100%;
   animation: novaPulseLegend 1s ease-in-out infinite;
 }

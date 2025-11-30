@@ -313,8 +313,8 @@ function handleMarkTaskDone(taskId) {
       
       <div
         class="mesh-layer
-               bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.35)_0,_transparent_55%),radial-gradient(circle_at_bottom,_rgba(45,212,191,0.25)_0,_transparent_60%)]
-               dark:bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.3)_0,_transparent_55%),radial-gradient(circle_at_bottom,_rgba(15,23,42,0.9)_0,_rgba(15,23,42,1)_60%)]
+               bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.35)_0,_transparent_25%),radial-gradient(circle_at_bottom,_rgba(45,212,191,0.25)_0,_transparent_60%)]
+               dark:bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.6)_0,_transparent_25%),radial-gradient(circle_at_bottom,_rgba(56,189,248,0.15)_0,_rgba(15,23,42,1)_60%)]
                animate-[mesh-move_45s_ease-in-out_infinite_alternate]"
       ></div>
 

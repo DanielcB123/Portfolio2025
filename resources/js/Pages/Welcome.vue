@@ -418,7 +418,7 @@ onBeforeUnmount(() => {
       <!-- Existing TaskFlow login -->
       <Link
         href="/login"
-        class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-emerald-400/80 hover:bg-white hover:shadow-emerald-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-emerald-400/80 dark:hover:bg-slate-900 dark:hover:shadow-emerald-500/30"
+        class="inline-flex items-center hover:translate-y-0.5 gap-2 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-emerald-400/80 hover:bg-white hover:shadow-emerald-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-blue-400/80 dark:hover:bg-slate-900 dark:hover:shadow-blue-500/30"
       >
         Log in to TaskFlow demo
       </Link>
@@ -426,15 +426,15 @@ onBeforeUnmount(() => {
       <!-- New Incident Command Center login -->
       <Link
         href="/incident-command/login"
-        class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-blue-400/80 hover:bg-white hover:shadow-blue-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-blue-400/80 dark:hover:bg-slate-900 dark:hover:shadow-blue-500/30"
+        class="inline-flex items-center hover:translate-y-0.5 gap-2 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-blue-400/80 hover:bg-white hover:shadow-blue-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-blue-400/80 dark:hover:bg-slate-900 dark:hover:shadow-blue-500/30"
       >
-        Log in to Incident Command Center
+        Log in to Incident Command Center Demo
       </Link>
 
       <!-- Game button -->
       <Link
         href="/orbital-dodge"
-        class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-blue-400/80 hover:bg-white hover:shadow-blue-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-blue-400/80 dark:hover:bg-slate-900 dark:hover:shadow-blue-500/30"
+        class="inline-flex items-center hover:translate-y-0.5 gap-2 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-blue-400/80 hover:bg-white hover:shadow-blue-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-blue-400/80 dark:hover:bg-slate-900 dark:hover:shadow-blue-500/30"
       >
         Orbital Dodge Game
       </Link>
@@ -505,12 +505,12 @@ onBeforeUnmount(() => {
               <span
                 class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 dark:border-slate-700/70 dark:bg-slate-900/80"
               >
-                Laravel 11 and legacy PHP rescue
+                Laravel and legacy PHP rescue
               </span>
               <span
                 class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 dark:border-slate-700/70 dark:bg-slate-900/80"
               >
-                Vue 3 and Inertia focused UX
+                Vue 3, TailwindCSS, and Inertia focused UX
               </span>
               <span
                 class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 dark:border-slate-700/70 dark:bg-slate-900/80"
@@ -528,6 +528,16 @@ onBeforeUnmount(() => {
                 Stripe, Connect, Issuing
               </span>
 
+              <span
+                class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 dark:border-slate-700/70 dark:bg-slate-900/80"
+              >
+                Building and consuming internal and external APIs
+              </span>
+              <span
+                class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 dark:border-slate-700/70 dark:bg-slate-900/80"
+              >
+                Backend heavy, with strong frontend and mobile experience
+              </span>
               <span
                 class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 dark:border-slate-700/70 dark:bg-slate-900/80"
               >
@@ -594,7 +604,7 @@ onBeforeUnmount(() => {
                       hover:-translate-y-1.5 hover:border-emerald-400/70 hover:shadow-emerald-500/20
                       dark:border-slate-800/90 dark:bg-gradient-to-br dark:from-slate-900 
                       dark:via-slate-900 dark:to-slate-950 dark:shadow-slate-950/80 
-                      dark:hover:shadow-emerald-500/40">
+                      dark:hover:shadow-emerald-500/20">
 
                 <div class="flex items-center justify-between gap-4">
                   <h2 class="text-sm font-semibold text-slate-900 dark:text-slate-50">
@@ -639,7 +649,11 @@ onBeforeUnmount(() => {
 
               <!-- Card 2 -->
               <article
-                class="card-enter-2 group relative overflow-hidden rounded-2xl border border-slate-200/90 bg-gradient-to-br from-white via-slate-50 to-slate-100 p-4 shadow-2xl shadow-slate-200/80 transition-transform duration-300 hover:-translate-y-1.5 hover:border-blue-400/70 hover:shadow-blue-500/20 dark:border-slate-800/90 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 dark:shadow-slate-950/80 dark:hover:shadow-blue-500/40"
+                class="card-enter-2 group relative overflow-hidden rounded-2xl border border-slate-200/90 
+                bg-gradient-to-br from-white via-slate-50 to-slate-100 p-4 shadow-2xl shadow-slate-200/80 
+                transition-transform duration-300 hover:-translate-y-1.5 hover:border-blue-400/70 
+                hover:shadow-blue-500/20 dark:border-slate-800/90 dark:bg-gradient-to-br dark:from-slate-900 
+                dark:via-slate-900 dark:to-slate-950 dark:shadow-slate-950/80 dark:hover:shadow-emerald-500/20"
               >
                 <div class="flex items-center justify-between gap-4">
                   <h2 class="text-sm font-semibold text-slate-900 dark:text-slate-50">
@@ -680,7 +694,9 @@ onBeforeUnmount(() => {
 
               <!-- Card 3: quick stats -->
               <article
-                class="card-enter-3 relative flex flex-col gap-3 rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-2xl shadow-slate-200/80 backdrop-blur-lg dark:border-slate-800/90 dark:bg-slate-900/80 dark:shadow-slate-950/80"
+                class="card-enter-3 relative flex flex-col gap-3 rounded-2xl border border-slate-200/90 
+                bg-white/90 p-4 shadow-2xl shadow-slate-200/80 backdrop-blur-lg dark:border-slate-800/90 
+                dark:bg-slate-900/80 dark:shadow-slate-950/80 dark:hover:shadow-emerald-500/20"
               >
                 <div class="flex items-center justify-between gap-4">
                   <h2 class="text-sm font-semibold text-slate-900 dark:text-slate-50">
@@ -711,7 +727,7 @@ onBeforeUnmount(() => {
                   </div>
                   <div class="rounded-xl border border-slate-200/80 bg-slate-50 px-2 py-3 dark:border-slate-800/80 dark:bg-slate-900">
                     <div class="text-lg font-semibold text-blue-500 dark:text-blue-300">
-                      870+
+                      900+
                     </div>
                     <div class="mt-1 text-[10px] text-slate-600 dark:text-slate-300">
                       Features and/or updates shipped across platforms
@@ -728,7 +744,10 @@ onBeforeUnmount(() => {
 
               <!-- Card 4: live typing code preview -->
               <article
-                class="card-enter-4 relative overflow-hidden rounded-2xl border border-slate-200/90 bg-gradient-to-tr from-white via-slate-50 to-slate-100 p-4 shadow-2xl shadow-slate-200/80 backdrop-blur-lg min-h-[260px] dark:border-slate-800/90 dark:bg-gradient-to-tr dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 dark:shadow-slate-950/80"
+                class="card-enter-4 relative overflow-hidden rounded-2xl border border-slate-200/90 
+                bg-gradient-to-tr from-white via-slate-50 to-slate-100 p-4 shadow-2xl shadow-slate-200/80 
+                backdrop-blur-lg min-h-[260px] dark:border-slate-800/90 dark:bg-gradient-to-tr dark:from-slate-900 
+                dark:via-slate-950 dark:to-slate-900 dark:shadow-slate-950/80 dark:hover:shadow-emerald-500/20"
               >
                 <div class="mb-3 flex items-center justify-between gap-4">
                   <h2 class="text-sm font-semibold text-slate-900 dark:text-slate-50">
@@ -824,8 +843,8 @@ onBeforeUnmount(() => {
                 </span>
               </div>
               <p class="text-xs text-slate-600 dark:text-slate-300">
-                Designed tables and indexes for contributions, payouts, polls, and activity feeds,
-                then wired them into dashboards that answer real questions for ops and leadership.
+                Created durable data models and indexes that tie together product features, background systems, 
+                operational workflows, and real-time user experiences.
               </p>
               <ul class="mt-1 space-y-1 text-[11px] text-slate-600 dark:text-slate-300">
                 <li>• Normalized schemas with clear foreign keys</li>
@@ -955,7 +974,7 @@ onBeforeUnmount(() => {
               >
                 <ul class="space-y-1">
                   <li>• Work with product to shape data and success metrics</li>
-                  <li>• Pair with backend devs on API and DB boundaries</li>
+                  <li>• Fix the 10 percent that causes 90 percent of the headaches</li>
                   <li>• Align with design on states, loading, and errors</li>
                   <li>• Keep ops in the loop on logging and observability</li>
                   <li>• Write docs so future changes are less risky</li>

@@ -20,6 +20,16 @@ class TeamSeeder extends Seeder
                 'name'  => 'Design Team',
                 'color' => '#ec4899',
             ],
+            [
+                'slug'  => 'sre-guild',
+                'name'  => 'SRE Guild',
+                'color' => '#22c55e',
+            ],
+            [
+                'slug'  => 'incident-command',
+                'name'  => 'Incident Command',
+                'color' => '#0ea5e9',
+            ],
         ];
 
         foreach ($teams as $data) {

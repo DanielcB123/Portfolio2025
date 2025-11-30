@@ -12,9 +12,6 @@ return new class extends Migration {
             $table->unsignedBigInteger('owner_id')
                   ->nullable()
                   ->after('slug');
-
-            // If you really want FK constraints, you could add them in a separate migration,
-            // but for SQLite dev this is enough.
         });
     }
 
