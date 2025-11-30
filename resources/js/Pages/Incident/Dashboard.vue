@@ -43,12 +43,41 @@ const newFollowUp = ref({
   label: '',
   owner: '',
 });
+// theme
+const theme = ref('dark');
 
+const applyTheme = (value) => {
+  theme.value = value;
+
+  if (typeof window === 'undefined') return;
+
+  const root = window.document.documentElement;
+
+  if (value === 'dark') {
+    root.classList.add('dark');
+  } else {
+    root.classList.remove('dark');
+  }
+
+  window.localStorage.setItem('theme', value);
+};
 
 
 let tickTimer = null;
 
 onMounted(() => {
+  if (typeof window !== 'undefined') {
+    const stored = window.localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') {
+      applyTheme(stored);
+    } else {
+      const prefersDark =
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+      applyTheme(prefersDark ? 'dark' : 'light');
+    }
+  }
+
   if (incidents.value.length && !selectedIncidentId.value) {
     selectedIncidentId.value = incidents.value[0].id;
   }
@@ -300,6 +329,18 @@ function changeFollowUpStatus(followUpId, newStatus) {
   });
 }
 
+async function handleLogout() {
+  try {
+    await axios.post('/logout');
+  } catch (e) {
+    toast.error('There was a problem logging you out. Please try again.');
+    return;
+  }
+
+  window.localStorage.removeItem('taskflow_api_key');
+  toast.success('You have been logged out');
+  window.location.href = '/';
+}
 
 function followUpStatusLabel(status) {
   if (status === 'open') return 'Open';
@@ -468,9 +509,23 @@ function selectIncident(id) {
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50">
+  <div
+    class="relative min-h-screen overflow-hidden bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50"
+  >
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.12)_0,_transparent_55%),linear-gradient(to_bottom,_rgba(15,23,42,0.04)_0,_rgba(15,23,42,0.35)_55%)] dark:bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.12)_0,_transparent_55%),linear-gradient(to_bottom,_rgba(15,23,42,0.7)_0,_rgba(15,23,42,1)_55%)]"
+    ></div>
+    <div
+      class="pointer-events-none absolute inset-0 opacity-30 mix-blend-soft-light
+             [background-image:linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)]
+             [background-size:56px_56px]
+             dark:[background-image:linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)]"
+    ></div>
     <!-- Header -->
-    <header class="border-b py-2 border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
+    <div class="relative z-10">
+      <header
+        class="border-b py-2 border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80"
+      >      
       <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         <div class="flex items-center gap-3">
           <div
@@ -489,6 +544,22 @@ function selectIncident(id) {
         </div>
 
         <div class="flex items-center gap-3">
+          <!-- Theme toggle -->
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/70 px-3 py-1.5 text-[11px] text-slate-700 shadow shadow-slate-200/60 backdrop-blur transition hover:border-emerald-400/80 hover:text-emerald-600 dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-300 dark:shadow-slate-900/40 dark:hover:border-emerald-400/80 dark:hover:text-emerald-300"
+            @click="applyTheme(theme === 'dark' ? 'light' : 'dark')"
+          >
+            <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-amber-300">
+              <span v-if="theme === 'dark'">☾</span>
+              <span v-else>☀</span>
+            </span>
+            <span class="hidden sm:inline">
+              <span v-if="theme === 'dark'">Dark mode</span>
+              <span v-else>Light mode</span>
+            </span>
+          </button>
+
           <button
             type="button"
             @click="openCreateIncident"
@@ -510,6 +581,14 @@ function selectIncident(id) {
             </span>
             {{ stats.sev1Open }} active SEV1
           </div>
+
+          <button
+            type="button"
+            class="text-xs px-3 py-1.5 dark:text-white rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 active:scale-95 transition"
+            @click="handleLogout"
+          >
+            Logout
+          </button>
 
           <Link
             href="/"
@@ -1007,7 +1086,7 @@ function selectIncident(id) {
         </div>
       </section>
     </main>
-
+    </div>
     <!-- Create incident modal -->
     <transition name="fade">
       <div

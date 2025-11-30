@@ -314,20 +314,21 @@ function handleMarkTaskDone(taskId) {
       <div
         class="mesh-layer
                bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.35)_0,_transparent_55%),radial-gradient(circle_at_bottom,_rgba(45,212,191,0.25)_0,_transparent_60%)]
-               dark:bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.6)_0,_transparent_55%),radial-gradient(circle_at_bottom,_rgba(15,23,42,0.9)_0,_rgba(15,23,42,1)_60%)]
+               dark:bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.3)_0,_transparent_55%),radial-gradient(circle_at_bottom,_rgba(15,23,42,0.9)_0,_rgba(15,23,42,1)_60%)]
                animate-[mesh-move_45s_ease-in-out_infinite_alternate]"
       ></div>
 
       <!-- Subtle technical grid overlay -->
       <div
         class="grid-overlay
-              opacity-45
+              opacity-30
               [background-image:linear-gradient(to_right,rgba(148,163,184,0.45)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.45)_1px,transparent_1px)]
-              [background-size:40px_40px]
-              dark:opacity-25
+              [background-size:56px_56px]
+              dark:opacity-30
               dark:mix-blend-soft-light
               dark:[background-image:linear-gradient(to_right,rgba(15,23,42,0.85)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.85)_1px,transparent_1px)]"
       ></div>
+
     </div>
 
     <!-- Main content, lifted above background -->

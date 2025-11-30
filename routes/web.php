@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Incident\IncidentDashboardController;
 use App\Http\Controllers\Incident\IncidentFollowUpController;
+use App\Http\Controllers\GameScoreController;
 
 // Root → Welcome page
 Route::get('/', function () {
@@ -24,6 +25,18 @@ Route::get('/about', function () {
         ],
     ]);
 })->name('about');
+
+// Public Game page
+Route::get('/orbital-dodge', function () {
+    return Inertia::render('OrbitalDodge', [
+        'auth' => [
+            'user' => auth()->user(),
+        ],
+    ]);
+})->name('orbital-dodge');
+
+Route::get('/api/leaderboard/orbital-dodge', [GameScoreController::class, 'index']);
+Route::post('/api/leaderboard/orbital-dodge', [GameScoreController::class, 'store']);
 
 // Public Incident Command Center dashboard (read only)
 Route::get('/incident-command', [IncidentDashboardController::class, 'index'])

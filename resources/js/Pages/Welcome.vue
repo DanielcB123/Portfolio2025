@@ -50,7 +50,8 @@ const toggleTheme = () => {
 };
 
 // Typed code snippet for the "live editor" card
-const fullSnippet = `// routes/web.php
+const fullSnippet = `
+// routes/web.php
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/new-feature', [NewFeatureController::class, 'index'])
         ->name('new-feature.index');
@@ -261,18 +262,16 @@ onBeforeUnmount(() => {
       <!-- Theme toggle -->
       <button
         type="button"
-        @click="toggleTheme"
-        class="inline-flex items-center gap-1 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 text-[11px] font-medium text-slate-800 shadow-sm backdrop-blur transition hover:border-emerald-400/80 hover:bg-white dark:border-slate-700/80 dark:bg-slate-900/80 dark:text-slate-100 dark:hover:border-emerald-400/80 dark:hover:bg-slate-900"
+        class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/70 px-3 py-1.5 text-[11px] text-slate-700 shadow shadow-slate-200/60 backdrop-blur transition hover:border-emerald-400/80 hover:text-emerald-600 dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-300 dark:shadow-slate-900/40 dark:hover:border-emerald-400/80 dark:hover:text-emerald-300"
+        @click="applyTheme(theme === 'dark' ? 'light' : 'dark')"
       >
+        <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-amber-300">
+          <span v-if="theme === 'dark'">☾</span>
+          <span v-else>☀</span>
+        </span>
         <span class="hidden sm:inline">
-          {{ theme === 'dark' ? 'Light mode' : 'Dark mode' }}
-        </span>
-        <span class="sm:hidden">
-          {{ theme === 'dark' ? 'Light' : 'Dark' }}
-        </span>
-        <span class="text-xs" aria-hidden="true">
-          <span v-if="theme === 'dark'">☀️</span>
-          <span v-else>🌙</span>
+          <span v-if="theme === 'dark'">Dark mode</span>
+          <span v-else>Light mode</span>
         </span>
       </button>
 
@@ -396,12 +395,20 @@ onBeforeUnmount(() => {
         TaskFlow Dashboard
       </Link>
 
-      <!-- New Incident Incident Command Center dashboard button -->
+      <!-- Incident Incident Command Center dashboard button -->
       <Link
         href="/incident-command"
         class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-blue-400/80 hover:bg-white hover:shadow-blue-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-blue-400/80 dark:hover:bg-slate-900 dark:hover:shadow-blue-500/30"
       >
         Incident Command Center Dashboard
+      </Link>
+
+      <!-- Game button -->
+      <Link
+        href="/orbital-dodge"
+        class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-blue-400/80 hover:bg-white hover:shadow-blue-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-blue-400/80 dark:hover:bg-slate-900 dark:hover:shadow-blue-500/30"
+      >
+        Orbital Dodge Game
       </Link>
     </template>
 
@@ -421,11 +428,19 @@ onBeforeUnmount(() => {
       >
         Log in to Incident Command Center
       </Link>
+
+      <!-- Game button -->
+      <Link
+        href="/orbital-dodge"
+        class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-blue-400/80 hover:bg-white hover:shadow-blue-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-blue-400/80 dark:hover:bg-slate-900 dark:hover:shadow-blue-500/30"
+      >
+        Orbital Dodge Game
+      </Link>
     </template>
   </div>
 
 
-</div>
+  </div>
 
 
 
