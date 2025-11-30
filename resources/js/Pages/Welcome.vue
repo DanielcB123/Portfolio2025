@@ -333,55 +333,57 @@ onBeforeUnmount(() => {
                 web and app experiences.
               </h1>
 
-              <p class="max-w-xl text-sm sm:text-base text-slate-600 dark:text-slate-300">
-                Laravel, Vue, React Native, and legacy systems brought back to life. I have shipped
-                real tools for HVAC, dispatch, fintech style billing, and civic engagement. I am
-                ready to do the same for your team.
+              <p class="max-w-xl text-sm sm:text-base text-slate-600 dark:text-slate-300">  
+                From Laravel and Vue to React Native and revived Vanilla PHP legacy systems, I ship tools that matter. 
+                CRM platforms, insurance workflows, dispatch systems, billing engines, civic engagement apps. 
+                I am ready to create the next one with your team.
               </p>
             </div>
 
 <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
 <div class="flex flex-col gap-4 w-full">
   
-  <!-- Row 1: Three CTAs -->
-  <div class="flex flex-wrap justify-center gap-3 sm:flex-nowrap">
-    
-    <!-- Primary CTA -->
-    <a
-      href="#about"
-      @click.prevent="scrollToAbout"
-      class="group cursor-default inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 via-emerald-400 to-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-xl shadow-emerald-500/25 transition hover:translate-y-0.5 hover:shadow-2xl hover:shadow-emerald-500/40 active:translate-y-1"
-    >
-      See how I work
-      <span
-        class="text-lg inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-950/10 text-[11px] group-hover:translate-x-0.5 transition-transform"
-      >
-        →
-      </span>
-    </a>
+    <!-- Row 1: Three CTAs -->
+    <div class="flex flex-wrap justify-center gap-3 sm:flex-nowrap">
+      <div class="flex gap-3 group">
+        <!-- Primary CTA -->
+        <a
+          class="cursor-default inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 via-emerald-400 to-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-xl shadow-emerald-500/25 transition hover:shadow-2xl hover:shadow-emerald-500/40"
+        >
+          See how I work
+          <span
+            class="text-lg inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-950/10 text-[11px] group-hover:translate-x-0.5 transition-transform"
+          >
+            →
+          </span>
+        </a>
 
-    <!-- Secondary CTA -->
-    <a
-      href="#about"
-      @click.prevent="scrollToAbout"
-      class="inline-flex cursor-help items-center gap-2 rounded-full border border-slate-300/80 bg-white/80 px-5 py-2.5 text-sm font-medium text-slate-900 shadow-lg shadow-slate-200/30 transition hover:border-emerald-400/80 hover:bg-white hover:shadow-emerald-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-emerald-400/80 dark:hover:bg-slate-900 dark:hover:shadow-emerald-500/30"
-    >
-      Why I am a great hire
-    </a>
+        <!-- Secondary CTA -->
+        <a
+          href="#about"
+          @click.prevent="scrollToAbout"
+          class="inline-flex items-center hover:translate-y-0.5 gap-2 rounded-full border border-slate-300/80 bg-white/80 px-5 py-2.5 text-sm font-medium text-slate-900 shadow-lg shadow-slate-200/30 transition
+                hover:border-emerald-400/80 hover:bg-white hover:shadow-emerald-500/20
+                group-hover:shadow-emerald-500/60
+                dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100
+                dark:hover:border-emerald-400/80 dark:hover:bg-slate-900 dark:hover:shadow-emerald-500/30"
+        >
+          Why I am a great hire
+        </a>
+        </div>
 
-    <!-- Tertiary CTA -->
-    <Link
-      href="/about"
-      class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/80 px-5 py-2.5 text-sm font-medium text-slate-900 shadow-lg transition hover:border-emerald-400/80 hover:bg-white hover:shadow-emerald-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-emerald-400/80 dark:hover:bg-slate-900 dark:hover:shadow-emerald-500/30"
-    >
-      About my background
-    </Link>
-
-  </div>
+        <!-- Tertiary CTA -->
+        <Link
+          href="/about"
+          class="inline-flex items-center hover:translate-y-0.5 gap-2 rounded-full border border-slate-300/80 bg-white/80 px-5 py-2.5 text-sm font-medium text-slate-900 shadow-lg transition hover:border-emerald-400/80 hover:bg-white hover:shadow-emerald-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-emerald-400/80 dark:hover:bg-slate-900 dark:hover:shadow-emerald-500/30"
+        >
+          About my background
+        </Link>
+      </div>
 
   <!-- Row 2: centered "or" -->
   <div class="flex justify-center">
-    <span class="text-[11px] text-slate-500 dark:text-slate-400">or</span>
+    <span class="text-[11px] text-slate-500 dark:text-slate-300">or</span>
   </div>
 
   <!-- Row 3: centered login / go to dashboards -->
@@ -390,7 +392,7 @@ onBeforeUnmount(() => {
       <!-- Existing TaskFlow dashboard button -->
       <Link
         href="/dashboard"
-        class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-emerald-400/80 hover:bg-white hover:shadow-emerald-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-emerald-400/80 dark:hover:bg-slate-900 dark:hover:shadow-emerald-500/30"
+        class="inline-flex items-center gap-2 hover:translate-y-0.5 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-blue-400/80 hover:bg-white hover:shadow-blue-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-blue-400/80 dark:hover:bg-slate-900 dark:hover:shadow-blue-500/30"
       >
         TaskFlow Dashboard
       </Link>
@@ -398,7 +400,7 @@ onBeforeUnmount(() => {
       <!-- Incident Incident Command Center dashboard button -->
       <Link
         href="/incident-command"
-        class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-blue-400/80 hover:bg-white hover:shadow-blue-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-blue-400/80 dark:hover:bg-slate-900 dark:hover:shadow-blue-500/30"
+        class="inline-flex items-center gap-2 hover:translate-y-0.5 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-blue-400/80 hover:bg-white hover:shadow-blue-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-blue-400/80 dark:hover:bg-slate-900 dark:hover:shadow-blue-500/30"
       >
         Incident Command Center Dashboard
       </Link>
@@ -406,7 +408,7 @@ onBeforeUnmount(() => {
       <!-- Game button -->
       <Link
         href="/orbital-dodge"
-        class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-blue-400/80 hover:bg-white hover:shadow-blue-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-blue-400/80 dark:hover:bg-slate-900 dark:hover:shadow-blue-500/30"
+        class="inline-flex items-center gap-2 hover:translate-y-0.5 rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 text-xs text-slate-900 shadow-lg transition hover:border-blue-400/80 hover:bg-white hover:shadow-blue-500/20 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-blue-400/80 dark:hover:bg-slate-900 dark:hover:shadow-blue-500/30"
       >
         Orbital Dodge Game
       </Link>
@@ -453,27 +455,27 @@ onBeforeUnmount(() => {
               </span>
 
               <a
-                href="https://github.com/your-main-account"
+                href="https://github.com/DanielBurgessNSA"
                 target="_blank"
                 rel="noopener"
                 class="underline-offset-2 hover:text-emerald-500 hover:underline"
               >
-                GitHub (primary)
+                GitHub (1)
               </a>
               <span class="hidden sm:inline text-slate-400">•</span>
 
               <a
-                href="https://github.com/your-second-account"
+                href="https://github.com/DanielcB123"
                 target="_blank"
                 rel="noopener"
                 class="underline-offset-2 hover:text-emerald-500 hover:underline"
               >
-                GitHub (alt)
+                GitHub (2)
               </a>
               <span class="hidden sm:inline text-slate-400">•</span>
 
               <a
-                href="https://www.linkedin.com/in/your-linkedin"
+                href="https://www.linkedin.com/in/daniel-c-burgess/"
                 target="_blank"
                 rel="noopener"
                 class="underline-offset-2 hover:text-emerald-500 hover:underline"
@@ -483,26 +485,18 @@ onBeforeUnmount(() => {
               <span class="hidden sm:inline text-slate-400">•</span>
 
               <a
-                href="/Daniel_Burgess_Resume.pdf"
+                href="mailto:burgess.daniel4141@gmail.com"
                 class="underline-offset-2 hover:text-emerald-500 hover:underline"
               >
-                Resume
+                burgess.daniel4141@gmail.com
               </a>
               <span class="hidden sm:inline text-slate-400">•</span>
 
               <a
-                href="mailto:you@example.com"
+                href="tel:+18175421326"
                 class="underline-offset-2 hover:text-emerald-500 hover:underline"
               >
-                you@example.com
-              </a>
-              <span class="hidden sm:inline text-slate-400">•</span>
-
-              <a
-                href="tel:+1XXXXXXXXXX"
-                class="underline-offset-2 hover:text-emerald-500 hover:underline"
-              >
-                +1 (XXX) XXX-XXXX
+                +1 (817) 542-1326
               </a>
             </div>
 
@@ -526,8 +520,20 @@ onBeforeUnmount(() => {
               <span
                 class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 dark:border-slate-700/70 dark:bg-slate-900/80"
               >
-                Stripe, complex SQL, and real operations
+                Database design, complex SQL
               </span>
+              <span
+                class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 dark:border-slate-700/70 dark:bg-slate-900/80"
+              >
+                Stripe, Connect, Issuing
+              </span>
+
+              <span
+                class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 dark:border-slate-700/70 dark:bg-slate-900/80"
+              >
+                Google Maps API, Mapbox, Leaflet
+              </span>
+
             </div>
           </section>
 
@@ -540,7 +546,7 @@ onBeforeUnmount(() => {
 
             <div class="relative grid gap-4 sm:gap-5">
               <!-- Card 1 -->
-              <article
+              <!-- <article
                 class="card-enter-1 group relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-2xl shadow-slate-200/80 backdrop-blur-lg transition-transform duration-300 hover:-translate-y-1.5 hover:border-emerald-400/70 hover:shadow-emerald-500/20 dark:border-slate-800/90 dark:bg-slate-900/80 dark:shadow-slate-950/80 dark:hover:shadow-emerald-500/40"
               >
                 <div class="flex items-center justify-between gap-4">
@@ -578,7 +584,58 @@ onBeforeUnmount(() => {
                 <div
                   class="pointer-events-none absolute right-0 top-0 h-16 w-16 translate-x-6 -translate-y-4 rounded-full bg-gradient-to-br from-emerald-400/20 to-cyan-400/10 blur-2xl opacity-60 transition-opacity group-hover:opacity-100"
                 ></div>
+              </article> -->
+
+              <!-- Card 1 -->
+              <article
+                class="card-enter-2 group relative overflow-hidden rounded-2xl border border-slate-200/90 
+                      bg-gradient-to-br from-white via-slate-50 to-slate-100 p-4
+                      shadow-2xl shadow-slate-200/80 transition-transform duration-300
+                      hover:-translate-y-1.5 hover:border-emerald-400/70 hover:shadow-emerald-500/20
+                      dark:border-slate-800/90 dark:bg-gradient-to-br dark:from-slate-900 
+                      dark:via-slate-900 dark:to-slate-950 dark:shadow-slate-950/80 
+                      dark:hover:shadow-emerald-500/40">
+
+                <div class="flex items-center justify-between gap-4">
+                  <h2 class="text-sm font-semibold text-slate-900 dark:text-slate-50">
+                    Incident Command Center
+                  </h2>
+
+                  <span
+                    class="inline-flex items-center gap-1 rounded-full bg-blue-500/10 px-2 py-0.5
+                          text-[10px] font-medium text-blue-600 dark:text-blue-300">
+                    Portfolio access
+                  </span>
+                </div>
+
+                <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
+                  Real-time incident dashboard with timeline events, severity filters, follow-ups,
+                  micro-interactions, and live-ops-inspired UX built with Laravel, Vue 3,
+                  and Inertia.
+                </p>
+
+                <div class="mt-3 flex flex-wrap gap-1.5 text-[10px] text-slate-600 dark:text-slate-300">
+                  <span class="rounded-full bg-slate-100 px-2 py-0.5 dark:bg-slate-800/80">
+                    Vue 3
+                  </span>
+                  <span class="rounded-full bg-slate-100 px-2 py-0.5 dark:bg-slate-800/80">
+                    Inertia
+                  </span>
+                  <span class="rounded-full bg-slate-100 px-2 py-0.5 dark:bg-slate-800/80">
+                    Laravel
+                  </span>
+                  <span class="rounded-full bg-slate-100 px-2 py-0.5 dark:bg-slate-800/80">
+                    Live Ops UX
+                  </span>
+                </div>
+
+                <!-- subtle glow element -->
+                <div
+                  class="pointer-events-none absolute -left-10 bottom-0 h-24 w-24 
+                        bg-gradient-to-tr from-emerald-400/20 to-cyan-300/15 blur-2xl">
+                </div>
               </article>
+
 
               <!-- Card 2 -->
               <article
@@ -596,8 +653,8 @@ onBeforeUnmount(() => {
                 </div>
 
                 <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
-                  Kanban style platform concept with multi team support, keyboard driven UX, and
-                  confetti micro interactions built with Laravel and Vue 3.
+                  Kanban style platform concept with multi team support, inline task edits, keyboard driven UX, and
+                  micro interactions built with Laravel and Vue 3.
                 </p>
 
                 <div
@@ -636,7 +693,7 @@ onBeforeUnmount(() => {
                     class="rounded-xl border border-slate-200/80 bg-slate-50 px-2 py-3 dark:border-slate-800/80 dark:bg-slate-900"
                   >
                     <div class="text-lg font-semibold text-emerald-500 dark:text-emerald-300">
-                      7+
+                      6+
                     </div>
                     <div class="mt-1 text-[10px] text-slate-600 dark:text-slate-300">
                       Years hands on shipping features
@@ -652,16 +709,15 @@ onBeforeUnmount(() => {
                       Ops experience with real outages
                     </div>
                   </div>
-                  <div
-                    class="rounded-xl border border-slate-200/80 bg-slate-50 px-2 py-3 dark:border-slate-800/80 dark:bg-slate-900"
-                  >
+                  <div class="rounded-xl border border-slate-200/80 bg-slate-50 px-2 py-3 dark:border-slate-800/80 dark:bg-slate-900">
                     <div class="text-lg font-semibold text-blue-500 dark:text-blue-300">
-                      3
+                      870+
                     </div>
                     <div class="mt-1 text-[10px] text-slate-600 dark:text-slate-300">
-                      Platforms web, mobile, legacy
+                      Features and/or updates shipped across platforms
                     </div>
                   </div>
+
                 </div>
 
                 <p class="text-[11px] text-slate-600 dark:text-slate-300">
@@ -731,7 +787,7 @@ onBeforeUnmount(() => {
         </div>
       </main>
 
-      <!-- Featured product work -->
+      <!-- How I Build Systems -->
       <section
         id="projects"
         class="border-t border-slate-200/80 bg-slate-50/95 px-6 py-10 sm:px-10 sm:py-12 lg:py-14 dark:border-slate-800/80 dark:bg-slate-950/95"
@@ -740,7 +796,7 @@ onBeforeUnmount(() => {
           <header class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p class="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-500">
-                Featured product work
+                How I Build Systems
               </p>
               <h2 class="mt-1 text-2xl sm:text-3xl font-semibold text-slate-900 dark:text-slate-50">
                 Systems that connect UI, backend, and data
