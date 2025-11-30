@@ -37,7 +37,6 @@ class GameScoreSeeder extends Seeder
                 'score'    => 2300,
             ],
 
-            // Second mode for later if you want per game_key boards
             [
                 'game_key' => 'incident_sim',
                 'name'     => 'OnCallOps',

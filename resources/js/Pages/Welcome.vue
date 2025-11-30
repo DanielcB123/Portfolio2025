@@ -561,47 +561,6 @@ onBeforeUnmount(() => {
 
             <div class="relative grid gap-4 sm:gap-5">
               <!-- Card 1 -->
-              <!-- <article
-                class="card-enter-1 group relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-2xl shadow-slate-200/80 backdrop-blur-lg transition-transform duration-300 hover:-translate-y-1.5 hover:border-emerald-400/70 hover:shadow-emerald-500/20 dark:border-slate-800/90 dark:bg-slate-900/80 dark:shadow-slate-950/80 dark:hover:shadow-emerald-500/40"
-              >
-                <div class="flex items-center justify-between gap-4">
-                  <h2 class="text-sm font-semibold text-slate-900 dark:text-slate-50">
-                    American Peoples Alliance
-                  </h2>
-                  <span
-                    class="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:text-emerald-300"
-                  >
-                    Flagship case study
-                  </span>
-                </div>
-
-                <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
-                  Nonpartisan civic platform concept with candidate analytics, poll system, and
-                  donation flows using Laravel, Vue, and Stripe Connect.
-                </p>
-
-                <div
-                  class="mt-3 flex flex-wrap gap-1.5 text-[10px] text-slate-600 dark:text-slate-300"
-                >
-                  <span class="rounded-full bg-slate-100 px-2 py-0.5 dark:bg-slate-800/80">
-                    Laravel
-                  </span>
-                  <span class="rounded-full bg-slate-100 px-2 py-0.5 dark:bg-slate-800/80">
-                    Vue 3
-                  </span>
-                  <span class="rounded-full bg-slate-100 px-2 py-0.5 dark:bg-slate-800/80">
-                    Stripe
-                  </span>
-                  <span class="rounded-full bg-slate-100 px-2 py-0.5 dark:bg-slate-800/80">
-                    Data heavy UI
-                  </span>
-                </div>
-                <div
-                  class="pointer-events-none absolute right-0 top-0 h-16 w-16 translate-x-6 -translate-y-4 rounded-full bg-gradient-to-br from-emerald-400/20 to-cyan-400/10 blur-2xl opacity-60 transition-opacity group-hover:opacity-100"
-                ></div>
-              </article> -->
-
-              <!-- Card 1 -->
               <article
                 class="card-enter-2 group relative overflow-hidden rounded-2xl border border-slate-200/90 
                       bg-gradient-to-br from-white via-slate-50 to-slate-100 p-4
