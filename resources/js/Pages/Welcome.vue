@@ -515,6 +515,11 @@ onBeforeUnmount(() => {
               <span
                 class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 dark:border-slate-700/70 dark:bg-slate-900/80"
               >
+                Relational & NoSQL databases: MySQL, PostgreSQL, MongoDB, SQLite
+              </span>
+              <span
+                class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 dark:border-slate-700/70 dark:bg-slate-900/80"
+              >
                 React Native and Expo mobile apps
               </span>
               <span
